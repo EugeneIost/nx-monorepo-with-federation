@@ -1,0 +1,336 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.5.4",
+  "pathMappings": {
+    "remote1/Module": [
+      "apps/remote1/src/remote-entry.ts"
+    ],
+    "remote2/Module": [
+      "apps/remote2/src/remote-entry.ts"
+    ],
+    "@libs/ui": [
+      "libs/ui/src/index.ts"
+    ],
+    "@libs/config": [
+      "libs/config/src/index.ts"
+    ]
+  },
+  "nxJsonPlugins": [
+    {
+      "name": "@nx/rspack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "serveStaticTargetName": "serve-static",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "name": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    },
+    {
+      "name": "@nx/jest/plugin",
+      "options": {
+        "targetName": "test"
+      }
+    }
+  ],
+  "fileMap": {
+    "nonProjectFiles": [],
+    "projectFileMap": {
+      "nx-rspack-module-federation": [
+        {
+          "file": "nx.json",
+          "hash": "9564966330896148826"
+        },
+        {
+          "file": "package.json",
+          "hash": "17745304754522931798"
+        },
+        {
+          "file": "pnpm-lock.yaml",
+          "hash": "11223524068537638251"
+        },
+        {
+          "file": "pnpm-workspace.yaml",
+          "hash": "8512180286713583073"
+        },
+        {
+          "file": "tsconfig.base.json",
+          "hash": "5241700254920071148"
+        }
+      ],
+      "remote2": [
+        {
+          "file": "apps/remote2/module-federation.config.ts",
+          "hash": "8100659543548659341",
+          "deps": [
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "apps/remote2/project.json",
+          "hash": "16334001202993835436"
+        },
+        {
+          "file": "apps/remote2/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/remote2/public/index.html",
+          "hash": "4553875886134853111"
+        },
+        {
+          "file": "apps/remote2/rspack.config.ts",
+          "hash": "14015920215100212158",
+          "deps": [
+            "@libs/config"
+          ]
+        },
+        {
+          "file": "apps/remote2/src/app/app.tsx",
+          "hash": "1452394139833202869"
+        },
+        {
+          "file": "apps/remote2/src/app/nx-welcome.tsx",
+          "hash": "2348102959109701629"
+        },
+        {
+          "file": "apps/remote2/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/remote2/src/bootstrap.tsx",
+          "hash": "13757787300444314321",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "apps/remote2/src/main.ts",
+          "hash": "10018980967429810802"
+        },
+        {
+          "file": "apps/remote2/src/remote-entry.ts",
+          "hash": "16889477869301519830"
+        },
+        {
+          "file": "apps/remote2/tsconfig.app.json",
+          "hash": "1724761181792794701"
+        },
+        {
+          "file": "apps/remote2/tsconfig.json",
+          "hash": "513285409387438817"
+        }
+      ],
+      "remote1": [
+        {
+          "file": "apps/remote1/module-federation.config.ts",
+          "hash": "4818821016185415598",
+          "deps": [
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "apps/remote1/project.json",
+          "hash": "14648345127081617953"
+        },
+        {
+          "file": "apps/remote1/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/remote1/public/index.html",
+          "hash": "13833882285793051724"
+        },
+        {
+          "file": "apps/remote1/rspack.config.ts",
+          "hash": "4560330656266136329",
+          "deps": [
+            "@libs/config"
+          ]
+        },
+        {
+          "file": "apps/remote1/src/app/app.tsx",
+          "hash": "6903624903953784113"
+        },
+        {
+          "file": "apps/remote1/src/app/nx-welcome.tsx",
+          "hash": "15820919148788712569",
+          "deps": [
+            "@libs/ui"
+          ]
+        },
+        {
+          "file": "apps/remote1/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/remote1/src/bootstrap.tsx",
+          "hash": "13757787300444314321",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "apps/remote1/src/main.ts",
+          "hash": "10018980967429810802"
+        },
+        {
+          "file": "apps/remote1/src/remote-entry.ts",
+          "hash": "16889477869301519830"
+        },
+        {
+          "file": "apps/remote1/tsconfig.app.json",
+          "hash": "919886648105162486"
+        },
+        {
+          "file": "apps/remote1/tsconfig.json",
+          "hash": "513285409387438817"
+        }
+      ],
+      "@libs/config": [
+        {
+          "file": "libs/config/package.json",
+          "hash": "9113255130475754878"
+        },
+        {
+          "file": "libs/config/src/index.ts",
+          "hash": "5328910089261325249"
+        },
+        {
+          "file": "libs/config/src/lib/base-config.ts",
+          "hash": "17407671434427615991",
+          "deps": [
+            "npm:@nx/devkit",
+            "npm:@nx/module-federation",
+            "npm:@nx/rspack",
+            "npm:@rspack/core"
+          ]
+        },
+        {
+          "file": "libs/config/src/lib/mf-shared-deps.ts",
+          "hash": "414674223119608429",
+          "deps": [
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "libs/config/tsconfig.json",
+          "hash": "5124546285266257147"
+        },
+        {
+          "file": "libs/config/tsconfig.lib.json",
+          "hash": "10086876692885002321"
+        }
+      ],
+      "@libs/ui": [
+        {
+          "file": "libs/ui/package.json",
+          "hash": "1597564715581278398"
+        },
+        {
+          "file": "libs/ui/src/index.ts",
+          "hash": "8139907757386711965"
+        },
+        {
+          "file": "libs/ui/src/lib/Checkbox.tsx",
+          "hash": "7433080423697099466",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/ui/tsconfig.lib.json",
+          "hash": "12224818647567095553"
+        }
+      ],
+      "shell": [
+        {
+          "file": "apps/shell/module-federation.config.ts",
+          "hash": "199389964487121822",
+          "deps": [
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "apps/shell/project.json",
+          "hash": "1451073382293509855"
+        },
+        {
+          "file": "apps/shell/rspack.config.ts",
+          "hash": "15701407971359470250",
+          "deps": [
+            "npm:@nx/rspack",
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "apps/shell/src/app/app.tsx",
+          "hash": "13660303953113660836",
+          "deps": [
+            "npm:react",
+            "npm:react-router-dom",
+            [
+              "remote1",
+              "dynamic"
+            ],
+            [
+              "remote2",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/shell/src/app/nx-welcome.tsx",
+          "hash": "2348102959109701629"
+        },
+        {
+          "file": "apps/shell/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/shell/src/bootstrap.tsx",
+          "hash": "12937718876782900462",
+          "deps": [
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-router-dom"
+          ]
+        },
+        {
+          "file": "apps/shell/src/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/shell/src/index.html",
+          "hash": "10794238680979464640"
+        },
+        {
+          "file": "apps/shell/src/main.ts",
+          "hash": "14701344671644104227"
+        },
+        {
+          "file": "apps/shell/tsconfig.app.json",
+          "hash": "1724761181792794701"
+        },
+        {
+          "file": "apps/shell/tsconfig.json",
+          "hash": "513285409387438817"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "1751019190243823215"
+}
