@@ -1,9 +1,0 @@
-{
-  "run": {
-    "command": "nx run-many --target=serve",
-    "startTime": "2026-03-20T07:49:28.991Z",
-    "endTime": "2026-03-20T07:49:55.119Z",
-    "inner": false
-  },
-  "tasks": []
-}

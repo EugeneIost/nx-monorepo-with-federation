@@ -43,6 +43,41 @@
   "fileMap": {
     "nonProjectFiles": [],
     "projectFileMap": {
+      "@libs/config": [
+        {
+          "file": "libs/config/package.json",
+          "hash": "9113255130475754878"
+        },
+        {
+          "file": "libs/config/src/index.ts",
+          "hash": "5328910089261325249"
+        },
+        {
+          "file": "libs/config/src/lib/base-config.ts",
+          "hash": "17407671434427615991",
+          "deps": [
+            "npm:@nx/devkit",
+            "npm:@nx/module-federation",
+            "npm:@nx/rspack",
+            "npm:@rspack/core"
+          ]
+        },
+        {
+          "file": "libs/config/src/lib/mf-shared-deps.ts",
+          "hash": "414674223119608429",
+          "deps": [
+            "npm:@nx/module-federation"
+          ]
+        },
+        {
+          "file": "libs/config/tsconfig.json",
+          "hash": "5124546285266257147"
+        },
+        {
+          "file": "libs/config/tsconfig.lib.json",
+          "hash": "10086876692885002321"
+        }
+      ],
       "shell": [
         {
           "file": "apps/shell/module-federation.config.ts",
@@ -65,7 +100,7 @@
         },
         {
           "file": "apps/shell/rspack.config.ts",
-          "hash": "12183077852504228535",
+          "hash": "12280172583236621374",
           "deps": [
             "@libs/config"
           ]
@@ -91,12 +126,8 @@
           "hash": "2348102959109701629"
         },
         {
-          "file": "apps/shell/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
           "file": "apps/shell/src/assets/mf-registry.json",
-          "hash": "11851705008327022671"
+          "hash": "16721470232370402180"
         },
         {
           "file": "apps/shell/src/bootstrap.tsx",
@@ -142,71 +173,11 @@
         },
         {
           "file": "apps/shell/tsconfig.app.json",
-          "hash": "1724761181792794701"
+          "hash": "919886648105162486"
         },
         {
           "file": "apps/shell/tsconfig.json",
           "hash": "513285409387438817"
-        }
-      ],
-      "@libs/config": [
-        {
-          "file": "libs/config/package.json",
-          "hash": "9113255130475754878"
-        },
-        {
-          "file": "libs/config/src/index.ts",
-          "hash": "5328910089261325249"
-        },
-        {
-          "file": "libs/config/src/lib/base-config.ts",
-          "hash": "17407671434427615991",
-          "deps": [
-            "npm:@nx/devkit",
-            "npm:@nx/module-federation",
-            "npm:@nx/rspack",
-            "npm:@rspack/core"
-          ]
-        },
-        {
-          "file": "libs/config/src/lib/mf-shared-deps.ts",
-          "hash": "414674223119608429",
-          "deps": [
-            "npm:@nx/module-federation"
-          ]
-        },
-        {
-          "file": "libs/config/tsconfig.json",
-          "hash": "5124546285266257147"
-        },
-        {
-          "file": "libs/config/tsconfig.lib.json",
-          "hash": "10086876692885002321"
-        }
-      ],
-      "@libs/ui": [
-        {
-          "file": "libs/ui/package.json",
-          "hash": "1597564715581278398"
-        },
-        {
-          "file": "libs/ui/src/index.ts",
-          "hash": "8139907757386711965"
-        },
-        {
-          "file": "libs/ui/src/lib/Checkbox.tsx",
-          "hash": "7433080423697099466",
-          "deps": [
-            "npm:react"
-          ]
-        },
-        {
-          "file": "libs/ui/tsconfig.json",
-          "hash": "14088618039610991405"
-        },
-        {
-          "file": "libs/ui/tsconfig.lib.json",
-          "hash": "12224818647567095553"
         }
       ],
       "nx-rspack-module-federation": [
@@ -292,7 +263,7 @@
         },
         {
           "file": "apps/remote2/tsconfig.app.json",
-          "hash": "1724761181792794701"
+          "hash": "919886648105162486"
         },
         {
           "file": "apps/remote2/tsconfig.json",
@@ -332,7 +303,7 @@
         },
         {
           "file": "apps/remote1/src/app/nx-welcome.tsx",
-          "hash": "15820919148788712569",
+          "hash": "15058470033458324398",
           "deps": [
             "@libs/ui"
           ]
@@ -365,8 +336,33 @@
           "file": "apps/remote1/tsconfig.json",
           "hash": "513285409387438817"
         }
+      ],
+      "@libs/ui": [
+        {
+          "file": "libs/ui/package.json",
+          "hash": "1597564715581278398"
+        },
+        {
+          "file": "libs/ui/src/index.ts",
+          "hash": "8139907757386711965"
+        },
+        {
+          "file": "libs/ui/src/lib/Checkbox.tsx",
+          "hash": "7433080423697099466",
+          "deps": [
+            "npm:react"
+          ]
+        },
+        {
+          "file": "libs/ui/tsconfig.json",
+          "hash": "14088618039610991405"
+        },
+        {
+          "file": "libs/ui/tsconfig.lib.json",
+          "hash": "12224818647567095553"
+        }
       ]
     }
   },
-  "externalNodesHash": "1751019190243823215"
+  "externalNodesHash": "10148791376694350584"
 }
