@@ -355,7 +355,8 @@
             "executor": "@nx/web:file-server",
             "options": {
               "buildTarget": "build",
-              "spa": true
+              "spa": true,
+              "port": 4201
             },
             "configurations": {},
             "parallelism": true
@@ -442,7 +443,7 @@
         "metadata": {
           "targetGroups": {
             "NPM Scripts": [
-              "test"
+              "start"
             ]
           },
           "description": "",
@@ -454,14 +455,14 @@
           }
         },
         "targets": {
-          "test": {
+          "start": {
             "executor": "nx:run-script",
             "options": {
-              "script": "test"
+              "script": "start"
             },
             "metadata": {
-              "scriptContent": "echo \"Error: no test specified\" && exit 1",
-              "runCommand": "pnpm run test"
+              "scriptContent": "pnpm nx run-many --target=serve",
+              "runCommand": "pnpm run start"
             },
             "configurations": {},
             "parallelism": true
@@ -14152,7 +14153,7 @@
       },
       {
         "source": "shell",
-        "target": "npm:@nx/rspack",
+        "target": "@libs/config",
         "type": "static"
       },
       {
@@ -14178,6 +14179,11 @@
       {
         "source": "shell",
         "target": "npm:react-dom",
+        "type": "static"
+      },
+      {
+        "source": "shell",
+        "target": "npm:@module-federation/enhanced",
         "type": "static"
       }
     ],
@@ -33138,5 +33144,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1773927623149
+  "computedAt": 1773992968867
 }

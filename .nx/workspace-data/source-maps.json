@@ -564,6 +564,10 @@
       "apps/shell/rspack.config.ts",
       "@nx/rspack/plugin"
     ],
+    "targets.serve-static.options.port": [
+      "apps/shell/rspack.config.ts",
+      "@nx/rspack/plugin"
+    ],
     "targets.build-deps": [
       "apps/shell/rspack.config.ts",
       "@nx/rspack/plugin"
@@ -810,31 +814,31 @@
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test": [
+    "targets.start": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.executor": [
+    "targets.start.executor": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.options": [
+    "targets.start.options": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.metadata": [
+    "targets.start.metadata": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.options.script": [
+    "targets.start.options.script": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.metadata.scriptContent": [
+    "targets.start.metadata.scriptContent": [
       "package.json",
       "nx/core/package-json"
     ],
-    "targets.test.metadata.runCommand": [
+    "targets.start.metadata.runCommand": [
       "package.json",
       "nx/core/package-json"
     ],

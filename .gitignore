@@ -3,3 +3,6 @@ dist
 tmp
 temp
 build
+.nx
+.vscode
+.idea

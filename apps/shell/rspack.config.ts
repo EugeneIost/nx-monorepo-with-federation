@@ -1,41 +1,24 @@
-import { NxAppRspackPlugin } from '@nx/rspack/app-plugin.js';
-import { NxReactRspackPlugin } from '@nx/rspack/react-plugin.js';
-import {
-  NxModuleFederationPlugin,
-  NxModuleFederationDevServerPlugin,
-} from '@nx/module-federation/rspack.js';
-import { join } from 'path';
+import { createRspackConfig } from "@libs/config";
+import federationConfig from "./module-federation.config"
 
-import config from './module-federation.config';
+const runtimePlugin = require.resolve('./src/config/runtimePlugin.ts')
 
-export default {
-  output: {
-    path: join(__dirname, '../../dist/apps/shell'),
-    publicPath: 'auto',
-  },
-  devServer: {
-    port: 4200,
-    historyApiFallback: {
-      index: '/index.html',
-      disableDotRule: true,
-      htmlAcceptHeaders: ['text/html', 'application/xhtml+xml'],
+export default createRspackConfig({
+  appName: 'shell',
+  appRoot: 'apps/shell',
+  devPort: 4201,
+  federationConfig,
+  assets: [
+    {
+      input: "apps/shell/public",
+      glob: "favicon.ico",
+      output: "./"
     },
-  },
-  plugins: [
-    new NxAppRspackPlugin({
-      tsConfig: './tsconfig.app.json',
-      main: './src/main.ts',
-      index: './src/index.html',
-      baseHref: '/',
-      assets: ['./src/favicon.ico', './src/assets'],
-      styles: [],
-      outputHashing: process.env['NODE_ENV'] === 'production' ? 'all' : 'none',
-      optimization: process.env['NODE_ENV'] === 'production',
-    }),
-    new NxReactRspackPlugin({
-
-    }),
-    new NxModuleFederationPlugin({ config }, { dts: false }),
-    new NxModuleFederationDevServerPlugin({ config }),
+    {
+      input: "apps/shell/src/assets",
+      glob: "mf-registry.json",
+      output: "./assets"
+    }
   ],
-};
+  runtimePlugin
+})
