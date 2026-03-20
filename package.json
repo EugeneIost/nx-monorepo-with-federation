@@ -13,6 +13,7 @@
   "devDependencies": {
     "@eslint/js": "^9.8.0",
     "@module-federation/enhanced": "^0.21.2",
+    "@nx/devkit": "22.5.4",
     "@nx/eslint": "22.5.4",
     "@nx/eslint-plugin": "22.5.4",
     "@nx/jest": "22.5.4",
@@ -56,8 +57,8 @@
   },
   "nx": {},
   "dependencies": {
-    "@libs/ui": "workspace:*",
     "@libs/config": "workspace:*",
+    "@libs/ui": "workspace:*",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "6.30.3"

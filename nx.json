@@ -17,12 +17,6 @@
       "options": {
         "targetName": "lint"
       }
-    },
-    {
-      "plugin": "@nx/jest/plugin",
-      "options": {
-        "targetName": "test"
-      }
     }
   ],
   "generators": {
@@ -51,8 +45,11 @@
           "env": "NX_MF_DEV_REMOTES"
         }
       ],
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "cache": true
     }
-  }
+  },
+  "defaultBase": "master"
 }

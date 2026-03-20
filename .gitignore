@@ -3,6 +3,9 @@ dist
 tmp
 temp
 build
-.nx
 .vscode
 .idea
+
+
+.nx/cache
+.nx/workspace-data

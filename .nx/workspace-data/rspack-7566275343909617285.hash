@@ -1,5 +1,5 @@
 {
-  "12919453795165748060_apps/remote1/rspack.config.ts": {
+  "8199743001087475832_apps/remote1/rspack.config.ts": {
     "targets": {
       "build": {
         "command": "rspack build",
@@ -82,7 +82,7 @@
     },
     "metadata": {}
   },
-  "14217513739375414899_apps/remote2/rspack.config.ts": {
+  "7367028717690408114_apps/remote2/rspack.config.ts": {
     "targets": {
       "build": {
         "command": "rspack build",
@@ -165,7 +165,7 @@
     },
     "metadata": {}
   },
-  "11608020314635156209_apps/shell/rspack.config.ts": {
+  "8174000932884622260_apps/shell/rspack.config.ts": {
     "targets": {
       "build": {
         "command": "rspack build",
