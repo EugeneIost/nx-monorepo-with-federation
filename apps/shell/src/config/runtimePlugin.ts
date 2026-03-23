@@ -22,7 +22,6 @@ export default function runtimePlugin(): ModuleFederationRuntimePlugin {
     return {
         name: 'mf-runtime-plugin',
         async afterResolve(args) {
-            console.log("REMOTE", args)
             const manifest = await loadManifest();
 
             const remoteUrl = manifest[args.id]

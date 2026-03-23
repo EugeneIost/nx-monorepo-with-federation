@@ -14168,6 +14168,11 @@
       },
       {
         "source": "shell",
+        "target": "npm:react-dom",
+        "type": "static"
+      },
+      {
+        "source": "shell",
         "target": "remote1",
         "type": "dynamic"
       },
@@ -14175,11 +14180,6 @@
         "source": "shell",
         "target": "remote2",
         "type": "dynamic"
-      },
-      {
-        "source": "shell",
-        "target": "npm:react-dom",
-        "type": "static"
       },
       {
         "source": "shell",
@@ -33144,5 +33144,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1774012621103
+  "computedAt": 1774247093052
 }

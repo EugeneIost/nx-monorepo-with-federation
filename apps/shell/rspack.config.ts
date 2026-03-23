@@ -18,6 +18,11 @@ export default createRspackConfig({
       input: "apps/shell/src/assets",
       glob: "mf-registry.json",
       output: "./assets"
+    },
+    {
+      input: "apps/shell/src/assets",
+      glob: "mf-registry.json.template",
+      output: "./assets"
     }
   ],
   runtimePlugin

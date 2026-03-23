@@ -1,0 +1,50 @@
+# docker/docker-compose.yml
+version: '3.8'
+
+services:
+  shell:
+    build:
+      context: ..
+      dockerfile: docker/shell/Dockerfile
+    container_name: mf-shell
+    ports:
+      - "8080:80"
+    environment:
+      - REMOTE1_URL=http://localhost:8081
+      - REMOTE2_URL=http://localhost:8082
+    depends_on:
+      - remote1
+      - remote2
+    networks:
+      - mf-network
+    restart: unless-stopped
+
+  remote1:
+    build:
+      context: ..
+      dockerfile: docker/remote/Dockerfile
+      args:
+        - APP_NAME=remote1
+    container_name: mf-remote1
+    ports:
+      - "8081:80"
+    networks:
+      - mf-network
+    restart: unless-stopped
+
+  remote2:
+    build:
+      context: ..
+      dockerfile: docker/remote/Dockerfile
+      args:
+        - APP_NAME=remote2
+    container_name: mf-remote2
+    ports:
+      - "8082:80"
+    networks:
+      - mf-network
+    restart: unless-stopped
+
+networks:
+  mf-network:
+    driver: bridge

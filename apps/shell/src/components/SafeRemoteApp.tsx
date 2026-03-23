@@ -8,12 +8,18 @@ interface Props {
 }
 
 const remoteApps = {
-    test_remote1: React.lazy(async () => await import("remote1/Module")),
-    test_remote2: React.lazy(async () => await import("remote2/Module")),
+    remote1: React.lazy(async () => await import("remote1/Module")),
+    remote2: React.lazy(async () => await import("remote2/Module")),
 };
 
 export const SafeRemoteApp: FC<Props> = ({ remote, module, fallback = <div>Remote недоступен</div> }) => {
     const RemoteComponent = useMemo(() => {
+        const remoteApp = remoteApps[remote as keyof typeof remoteApps];
+
+        if (!remoteApp) {
+            return () => fallback;
+        }
+
         return remoteApps[remote as keyof typeof remoteApps];
     }, [remote, module]);
 

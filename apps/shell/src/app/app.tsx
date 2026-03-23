@@ -1,9 +1,10 @@
 import * as React from 'react';
 import NxWelcome from './nx-welcome';
 import { Link, Route, Routes } from 'react-router-dom';
+import { SafeRemoteApp } from '../components/SafeRemoteApp';
 
-const Remote1 = React.lazy(() => import('remote1/Module'));
-const Remote2 = React.lazy(() => import('remote2/Module'));
+// const Remote1 = React.lazy(() => import('remote1/Module'));
+// const Remote2 = React.lazy(() => import('remote2/Module'));
 
 export function App() {
   return (
@@ -21,8 +22,8 @@ export function App() {
       </ul>
       <Routes>
         <Route path="/" element={<NxWelcome title="shell" />} />
-        <Route path="/remote1" element={<Remote1 />} />
-        <Route path="/remote2" element={<Remote2 />} />
+        <Route path="/remote1" element={<SafeRemoteApp module='Module' remote='remote1'/>} />
+        <Route path="/remote2" element={<SafeRemoteApp module='Module' remote='remote2'/>} />
       </Routes>
     </React.Suspense>
   );
