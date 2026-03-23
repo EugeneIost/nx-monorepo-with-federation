@@ -5,7 +5,5 @@ temp
 build
 .vscode
 .idea
-
-
-.nx/cache
-.nx/workspace-data
+.nx/
+target
