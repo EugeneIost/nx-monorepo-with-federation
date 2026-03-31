@@ -56,9 +56,6 @@
         },
         "changelog": {
             "projectChangelogs": true
-        },
-        "git": {
-          "commit": false
         }
     },
     "defaultBase": "main"
