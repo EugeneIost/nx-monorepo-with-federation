@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pnpm nx run-many --target=serve"
+    "start": "pnpm nx run-many --target=serve",
+    "versions:patch": "node scripts/versions-bump.js" 
   },
   "keywords": [],
   "author": "",

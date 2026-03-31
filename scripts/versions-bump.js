@@ -5,12 +5,12 @@ const path = require('path');
 function getAffectedProjects() {
   try {
     const result = execSync(
-      'nx print-affected --target=build --select=projects'
+      'nx show projects --affected --base=origin/main --head=HEAD --type=app'
     )
       .toString()
       .trim();
 
-    return result ? result.split(',') : [];
+    return result ? result.split('\n').filter(Boolean) : [];
   } catch {
     return [];
   }
