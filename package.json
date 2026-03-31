@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "pnpm nx run-many --target=serve",
-    "versions:patch": "node scripts/versions-bump.js" 
+    "release": "nx release version",
+    "release:affected": "nx release version --projects=\"$(nx show projects --affected | tr '\\n' ',' | sed 's/,$//')\""
   },
   "keywords": [],
   "author": "",
