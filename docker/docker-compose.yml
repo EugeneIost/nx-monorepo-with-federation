@@ -5,6 +5,9 @@ services:
     build:
       context: ..
       dockerfile: docker/shell/Dockerfile
+      args:
+        - REMOTE1_URL=${REMOTE1_URL:-http://localhost:8081}
+        - REMOTE2_URL=${REMOTE2_URL:-http://localhost:8082}
     image: mf-shell:latest
     container_name: mf-shell
 

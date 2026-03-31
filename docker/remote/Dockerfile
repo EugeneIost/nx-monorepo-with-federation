@@ -11,20 +11,22 @@ WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 COPY apps/${APP_NAME}/project.json ./apps/${APP_NAME}/
-
+COPY apps/${APP_NAME}/package.json ./apps/${APP_NAME}/
 COPY libs ./libs
 
 RUN pnpm install --frozen-lockfile --shamefully-hoist
 
 COPY . .
 
-RUN pnpm exec nx build ${APP_NAME} --prod
+RUN VERSION=$(node -p "require('./apps/${APP_NAME}/package.json').version") && \
+    echo "🚀 Building ${APP_NAME}@${VERSION}" && \
+    pnpm exec nx build ${APP_NAME} --prod && \
+    mkdir -p /output/${APP_NAME}/${VERSION} && \
+    cp -r dist/apps/${APP_NAME}/* /output/${APP_NAME}/${VERSION}
 
 FROM nginx:alpine
 
-ARG APP_NAME
-
-COPY --from=builder /app/dist/apps/${APP_NAME} /usr/share/nginx/html
+COPY --from=builder /output /usr/share/nginx/html
 
 COPY docker/remote/nginx.conf /etc/nginx/conf.d/default.conf
 

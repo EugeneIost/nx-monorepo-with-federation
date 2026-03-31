@@ -14,18 +14,20 @@ RUN pnpm install --frozen-lockfile --shamefully-hoist
 
 COPY . .
 
+ARG REMOTE1_URL
+ARG REMOTE2_URL
+
+ENV REMOTE1_URL=$REMOTE1_URL
+ENV REMOTE2_URL=$REMOTE2_URL
+
+RUN node docker/shell/generate-mf-registry
+
 RUN pnpm exec nx build shell --prod
 
 FROM nginx:alpine
 
-RUN apk add --no-cache gettext
-
 COPY --from=builder /app/dist/apps/shell /usr/share/nginx/html
 
 COPY docker/shell/nginx.conf /etc/nginx/conf.d/default.conf
-
-COPY docker/shell/entrypoint.sh /docker-entrypoint.d/40-generate-registry.sh
-
-RUN chmod +x /docker-entrypoint.d/40-generate-registry.sh
 
 EXPOSE 80

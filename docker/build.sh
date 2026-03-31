@@ -10,9 +10,7 @@ docker-compose build
 
 echo "Saving images to target/docker-images/..."
 
-# Находим все образы, начинающиеся с mf-
 docker images --format "{{.Repository}}:{{.Tag}}" | grep "^mf-" | while read image; do
-    # Преобразуем имя образа в имя файла (заменяем / и : на -)
     filename=$(echo "$image" | tr '/:' '--')
     echo "Saving $image to ${filename}.tar..."
     docker save "$image" -o "../target/docker-images/${filename}.tar"

@@ -1,4 +1,0 @@
-{
-    "remote1": "${REMOTE1_URL}",
-    "remote2": "${REMOTE2_URL}"
-}

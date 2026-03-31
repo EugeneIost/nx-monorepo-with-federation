@@ -1,4 +1,10 @@
 {
-    "remote1": "http://localhost:4201",
-    "remote2": "http://localhost:4202"
+    "remote1": {
+        "url": "http://localhost:4201",
+        "version": "1.0.0"
+    },
+    "remote2": {
+        "url": "http://localhost:4202",
+        "version": "1.0.0"
+    }
 }

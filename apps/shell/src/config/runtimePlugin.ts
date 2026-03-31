@@ -1,47 +1,53 @@
 import type {
-    ModuleFederationRuntimePlugin
+  ModuleFederationRuntimePlugin,
 } from '@module-federation/enhanced/runtime'
 
-type Manifest = Record<string, string>;
+type Manifest = Record<string, {
+  url: string;
+  version: string
+}>;
 
 let manifestPromise: Promise<Manifest> | null = null
 
 function loadManifest(): Promise<Manifest> {
-    if (!manifestPromise) {
-        manifestPromise = fetch("/assets/mf-registry.json")
-            .then(r => typeof r.json === 'function' ? r.json() : r)
-            .catch(err => {
-                console.error('Ошибка загрузки mf-registry.json', err)
-            })
-    }
+  if (!manifestPromise) {
+    manifestPromise = fetch("/assets/mf-registry.json")
+      .then(r => typeof r.json === 'function' ? r.json() : r)
+      .catch(err => {
+        console.error('Ошибка загрузки mf-registry.json', err)
+      })
+  }
 
-    return manifestPromise
+  return manifestPromise
 }
 
 export default function runtimePlugin(): ModuleFederationRuntimePlugin {
-    return {
-        name: 'mf-runtime-plugin',
-        async afterResolve(args) {
-            const manifest = await loadManifest();
+  return {
+    name: 'mf-runtime-plugin',
+    async afterResolve(args) {
+      if (process.env['NODE_ENV'] === "production") {
+        const manifest = await loadManifest();
 
-            const remoteUrl = manifest[args.id]
+        const remoteConfig = manifest[args.id]
 
-            if (!remoteUrl) {
-                return args
-            }
+        if (!remoteConfig) {
+          return args
+        }
 
-            const entry = `${remoteUrl}/remoteEntry.js`
+        const entry = `${remoteConfig.url}/${args.id}/${remoteConfig.version}/remoteEntry.js`
 
-            args.remoteInfo.entry = entry;
+        args.remoteInfo.entry = entry;
 
-            return {
-                ...args,
-                remoteInfo: {
-                    ...args.remoteInfo,
-                    entry: entry
-                }
-            }
-        },
-        
-    }
+        return {
+          ...args,
+          remoteInfo: {
+            ...args.remoteInfo,
+            entry: entry
+          }
+        }
+      }
+
+      return args
+    },
+  }
 }
