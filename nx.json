@@ -52,6 +52,7 @@
     "release": {
         "projects": ["apps/*"],
         "version": {
+            "fallbackCurrentVersionResolver": "disk",
             "conventionalCommits": true
         },
         "changelog": {
