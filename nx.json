@@ -1,55 +1,62 @@
 {
-  "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "plugins": [
-    {
-      "plugin": "@nx/rspack/plugin",
-      "options": {
-        "buildTargetName": "build",
-        "serveTargetName": "serve",
-        "serveStaticTargetName": "serve-static",
-        "previewTargetName": "preview",
-        "buildDepsTargetName": "build-deps",
-        "watchDepsTargetName": "watch-deps"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
-  "generators": {
-    "@nx/react": {
-      "application": {
-        "babel": true,
-        "style": "none",
-        "linter": "eslint",
-        "bundler": "rspack"
-      },
-      "component": {
-        "style": "none"
-      },
-      "library": {
-        "style": "none",
-        "linter": "eslint"
-      }
-    }
-  },
-  "targetDefaults": {
-    "@nx/rspack:rspack": {
-      "inputs": [
-        "production",
-        "^production",
+    "$schema": "./node_modules/nx/schemas/nx-schema.json",
+    "plugins": [
         {
-          "env": "NX_MF_DEV_REMOTES"
+            "plugin": "@nx/rspack/plugin",
+            "options": {
+                "buildTargetName": "build",
+                "serveTargetName": "serve",
+                "serveStaticTargetName": "serve-static",
+                "previewTargetName": "preview",
+                "buildDepsTargetName": "build-deps",
+                "watchDepsTargetName": "watch-deps"
+            }
+        },
+        {
+            "plugin": "@nx/eslint/plugin",
+            "options": {
+                "targetName": "lint"
+            }
         }
-      ],
-      "dependsOn": [
-        "^build"
-      ],
-      "cache": true
-    }
-  },
-  "defaultBase": "main"
+    ],
+    "generators": {
+        "@nx/react": {
+            "application": {
+                "babel": true,
+                "style": "none",
+                "linter": "eslint",
+                "bundler": "rspack"
+            },
+            "component": {
+                "style": "none"
+            },
+            "library": {
+                "style": "none",
+                "linter": "eslint"
+            }
+        }
+    },
+    "targetDefaults": {
+        "@nx/rspack:rspack": {
+            "inputs": [
+                "production",
+                "^production",
+                {
+                    "env": "NX_MF_DEV_REMOTES"
+                }
+            ],
+            "dependsOn": ["^build"],
+            "cache": true
+        }
+    },
+    "release": {
+        "projects": ["apps/*"],
+        "version": {
+            "conventionalCommits": true
+        },
+        "changelog": {
+            "projectChangelogs": true
+        }
+    },
+    "defaultBase": "main"
 }
